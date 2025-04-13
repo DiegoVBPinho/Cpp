@@ -31,6 +31,9 @@ Exemplo de entrada                  Exemplo de saída
 
 */
 
+#include <iostream>
+using namespace std;
+
 int binaria(int vetor[], int tamanho, int x)
 {
     bool achou;            // var aux p/ busca
@@ -53,9 +56,6 @@ int binaria(int vetor[], int tamanho, int x)
     else
         return -1;
 }
-
-#include <iostream>
-using namespace std;
 
 int main()
 {
