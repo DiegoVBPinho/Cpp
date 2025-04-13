@@ -55,12 +55,12 @@ int main()
     int x;
     cin >> x;
 
-    int resultado = busca_seq(vetor, tamanho, x);
+    int resultado = busca_seq(vetor, tamanho, x); // armazenou o resultado da busca na var Resultado
 
-    if (resultado == -1)
-        cout << x << " nao encontrado";
+    if (resultado == -1)                // analisa se a função retornou o valor de I ou -1
+        cout << x << " nao encontrado"; // resultado -1
     else
-        cout << x << " encontrado na posicao " << resultado;
+        cout << x << " encontrado na posicao " << resultado; // valor procurado e a posição de I no vetor
 
     return 0;
 }
