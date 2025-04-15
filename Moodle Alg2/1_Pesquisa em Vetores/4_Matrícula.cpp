@@ -43,31 +43,125 @@ Software
 112
 */
 
+// acredito ser uma busca sequencial por char. comparando nomes até achar o aluno e depois, retornar seus devidos valores
+
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int binaria(int vetor[], int tamanho, int x)
+struct Aluno
 {
-    bool achou;            // var aux p/ busca
-    int baixo, meio, alto; // var aux
-    baixo = 0;
-    alto = tamanho - 1;
-    achou = false;
-    while ((baixo <= alto) && (achou == false))
-    {
-        meio = (baixo + alto) / 2;
-        if (x < vetor[meio])
-            alto = meio - 1;
-        else if (x > vetor[meio])
-            baixo = meio + 1;
-        else
-            achou = true;
-    }
-    if (achou)
-        return meio;
-    else
-        return -1;
-}
+    string nome;
+    string curso;
+    int matricula;
+};
 
 int main()
 {
+    int n; // quantidade de alunos
+
+    cin >> n;
+    cin.ignore();
+
+    Aluno vetor[n];
+
+    // cadastrar valores no vetor
+    for (int i = 0; i < n; i++)
+    {
+        cout << "aluno n: " << i << endl;
+        getline(cin, vetor[i].nome);
+        getline(cin, vetor[i].curso);
+        cin >> vetor[i].matricula;
+        cin.ignore();
+    }
+
+    // variavel para verificar um nome especifíco dentro do vetor.
+    string nome_procurado;
+    getline(cin, nome_procurado);
+
+    cout << endl;
+
+    bool achou = false; // var para sair do if, caso encontre.
+    int aux;            // usada para verificar a posição real do aluno e usada pra imprimir
+
+    // busca no vetor e retorna a posição dentro do vetor
+    for (int i = 0; i < n; i++)
+    {
+        if (nome_procurado == vetor[i].nome)
+        {
+            aux = i; // armazenou qual posição de I
+            achou = true;
+            break;
+        }
+    }
+
+    // imprime o resultado, com as posições corretas do vetor de Struct
+
+    if (achou == false)
+        cout << "Aluno nao localizado" << endl;
+    else
+    {
+        cout << vetor[aux].nome << endl;
+        cout << vetor[aux].curso << endl;
+        cout << vetor[aux].matricula << endl;
+    }
+
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Aluno
+{
+    string nome;
+    string curso;
+    int matricula;
+};
+
+int main()
+{
+
+    int N = 0;
+    cin >> N;        // ler o valor da entrada do N
+    Aluno alunos[N]; // N Alunos dentro do Vetor de Alunos.
+    int armazena_i = 0;
+
+    // ler os dados dos alunos dentro do vetor.
+
+    for (int i = 0; i < N; i++)
+    {
+        getline(cin >> ws, alunos[i].nome);
+        getline(cin >> ws, alunos[i].curso);
+        cin >> alunos[i].matricula;
+    }
+
+    string nome_pesquisa;
+    getline(cin >> ws, nome_pesquisa);
+
+    bool achou = false;
+    for (int i = 0; i < N && achou == false; i++)
+    {
+        if (alunos[i].nome == nome_pesquisa)
+        {
+            achou = true;
+            armazena_i = i;
+        }
+    }
+
+    if (achou == false)
+    {
+        cout << "Aluno nao localizado";
+    }
+    else
+    {
+        cout << alunos[armazena_i].nome << endl;
+        cout << alunos[armazena_i].curso << endl;
+        cout << alunos[armazena_i].matricula << endl;
+    }
+
+    return 0;
+}*/
