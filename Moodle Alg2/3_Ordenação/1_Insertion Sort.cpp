@@ -30,7 +30,7 @@ void insercaoDireta(int vetor[], int tamanho)
     {
         chave = vetor[j];
         i = j - 1;
-        while ((i >= 0) && (vetor[i] > chave))
+        while ((i >= 0) && (vetor[i] < chave)) // aqui está crescente, para ser decrescente, tem que trocar para < chave
         {
             vetor[i + 1] = vetor[i];
             i = i - 1;
@@ -41,6 +41,27 @@ void insercaoDireta(int vetor[], int tamanho)
 
 int main()
 {
+    // looping de cadastro no vetor
+    int vetor[1000], aux, num;
+    int i = 0;
 
+    cin >> num;
+    while (num != 0)
+    {
+        vetor[i] = num;
+        i++;
+        cin >> num;
+    }
+
+    int tamanho = i; // verdadeiro tamanho do vetor
+    vetor[tamanho];
+
+    // Sequenciando o vetor da forma correta
+    insercaoDireta(vetor, tamanho);
+
+    // imprimindo o vetor
+
+    for (int i = 0; i < tamanho; i++)
+        cout << vetor[i] << " ";
     return 0;
 }
