@@ -97,14 +97,14 @@ int main()
     cin >> m;
 
     // cadastrando o vetor e o seu tamanho
-    dado t[m];
+    dado T[m];
     int i = 0;
 
     // prenchendo o com e -1
     for (i = 0; i < m; i++)
     {
-        t[i].status = 0;
-        t[i].k = -1;
+        T[i].status = 0;
+        T[i].k = -1;
     }
 
     // lendo os inteiros que ocuparão o vetor
@@ -119,7 +119,7 @@ int main()
 
     // imprimindo o vetor
     for (i = 0; i < m; i++)
-        cout << t[i].k << " ";
+        cout << T[i].k << " ";
 
     return 0;
 }
