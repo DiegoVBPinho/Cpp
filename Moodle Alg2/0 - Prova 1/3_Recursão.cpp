@@ -13,8 +13,8 @@ Implemente uma função recursiva para calcular Comb(n, k).
 
 Entrada
 A entrada consiste de dois inteiros, que correspondem aos valores de  n
- e k
-, respectivamente.
+e k, respectivamente.
+
 Saída
 O programa deve mostrar o valor de comb(n,k), conforme os exemplos abaixo:
 
